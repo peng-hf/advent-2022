@@ -7,7 +7,7 @@ for (const bag of rows) {
   const comp1 = bag.substring(0, bag.length / 2).split('') // Convert to array
   const comp2 = bag.substring(bag.length / 2, bag.length).split('') // convert to array
   
-  const commonItem = comp1.filter(item => comp2.includes(item))[0]
+  const commonItem = comp1.find(item => comp2.includes(item))
 
   let priority = 0
   if (commonItem === commonItem.toLowerCase()) {
