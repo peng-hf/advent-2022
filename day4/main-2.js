@@ -9,8 +9,6 @@ for (const pair of rows) {
   const elf2 = assignments[1].split('-').map(id => parseInt(id))
 
   if (
-    (elf1[0] >= elf2[0] && elf1[1] <= elf2[1]) ||
-    (elf2[0] >= elf1[0] && elf2[1] <= elf1[1]) ||
     (elf1[0] <= elf2[1] && elf1[1] >= elf2[1]) ||
     (elf2[0] <= elf1[1] && elf2[1] >= elf1[1])) {
     res++
@@ -27,7 +25,7 @@ console.log('Number of pairs with overlap(s) =>', res)
 6 - 6, 4 - 6 overlaps in a single section, 6.
 2 - 6, 4 - 8 overlaps in sections 4, 5, and 6.
 
-...45....  4-5
+......78.  7-8
 ....567..  5-7
 
 .2345678.  2-8
