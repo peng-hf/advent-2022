@@ -58,6 +58,3 @@ while (i < rows.length - 1) {
 countVisibleTrees += (j - 1) * 2 // top + bottom 
 
 console.log('Number of visible trees => ', countVisibleTrees)
-
-// console.log('test cell', isVisible(3, 1))
-// console.log('test cell', isVisible(3, 3))
