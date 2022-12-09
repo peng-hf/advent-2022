@@ -4,49 +4,35 @@ const rows = fs.readFileSync('./input.txt', 'utf-8').split('\n')
 
 function getScenicScore(i, j) {
   const treeSize = rows[i][j]
-
   let left = 0, right = 0, bottom = 0, top = 0
 
   let colIdxLeft = j - 1
   while (colIdxLeft >= 0) {
-    if (rows[i][colIdxLeft] < treeSize) left++
-    else {
-      if (rows[i][colIdxLeft] >= treeSize) left++
-      break
-    }
+    top++
+    if (rows[i][colIdxLeft] >= treeSize) break
     colIdxLeft--
   }
 
   let colIdxRight = j + 1
   while (colIdxRight < rows[i].length) {
-    if (rows[i][colIdxRight] < treeSize) right++
-    else {
-      if (rows[i][colIdxRight] >= treeSize) right++
-      break
-    }
+    right++
+    if (rows[i][colIdxRight] >= treeSize) break
     colIdxRight++
   }
 
   let rowIdxTop = i - 1
   while (rowIdxTop >= 0) {
-    if (rows[rowIdxTop][j] < treeSize) top++
-    else {
-      if (rows[rowIdxTop][j] >= treeSize) top++
-      break
-    }
+    top++
+    if (rows[rowIdxTop][j] >= treeSize) break
     rowIdxTop--
   }
 
   let rowIdxBottom = i + 1
   while (rowIdxBottom < rows.length) {
-    if (rows[rowIdxBottom][j] < treeSize) bottom++
-    else {
-      if (rows[rowIdxBottom][j] >= treeSize) bottom++
-      break
-    }
+    bottom++
+    if (rows[rowIdxBottom][j] >= treeSize) break
     rowIdxBottom++
   }
-
   return left * right * bottom * top
 }
 
