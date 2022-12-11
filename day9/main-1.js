@@ -4,7 +4,6 @@ const rows = fs.readFileSync('./input.txt', 'utf-8').split('\n')
 
 let head = { x: 0, y: 0 }, tail = { x: 0, y: 0 }
 let tailVisited = [] // History of position visited by tail at least once
-let headHistory = [] // debug
 
 const knotToStr = knot => `${knot.x}-${knot.y}`
 
@@ -33,36 +32,24 @@ for (const row of rows) {
     while (steps-- > 0) {
       head.y++
       if (!isTailAdjacent()) updateTail(head.x, head.y - 1)
-      headHistory.push(knotToStr(head)) // debug
     }
   } else if (direction === 'D') {
     while (steps-- > 0) {
       head.y--
       if (!isTailAdjacent()) updateTail(head.x, head.y + 1)
-      headHistory.push(knotToStr(head)) // debug
     }
   } else if (direction === 'R') {
     while (steps-- > 0) {
       head.x++
       if (!isTailAdjacent()) updateTail(head.x - 1, head.y)
-      headHistory.push(knotToStr(head)) // debug
     }
   } else if (direction === 'L') {
     while (steps-- > 0) {
       head.x--
       if (!isTailAdjacent()) updateTail(head.x + 1, head.y)
-      headHistory.push(knotToStr(head)) // debug
     }
   }
 }
 
-
-console.log('Head history', headHistory)
 console.log('Tail visited', tailVisited)
-
-
 console.log('Count positions visited by tail at least once =>', tailVisited.length + 1)
-
-
-
-
